@@ -10,27 +10,6 @@ export default function ContactSection() {
           <h2 className="c178">Let’s grow your channel together.</h2>
           <p className="c179">Send your details or book a free strategy call. We reply within one business day.</p>
           <div className="c180">
-            <a className="c181" href={SITE.whatsapp}>
-              <span className="c182">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#E00000"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path>
-                </svg>
-              </span>
-              <span className="c183">
-                <span className="c184">WHATSAPP / PHONE</span>
-                <span className="c185">{SITE.phone}</span>
-              </span>
-            </a>
             <a className="c181" href={`mailto:${SITE.email}`}>
               <span className="c182">
                 <svg

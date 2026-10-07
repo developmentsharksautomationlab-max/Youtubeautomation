@@ -154,8 +154,6 @@ export const SITE = {
   name: "YouTube Automation Lab",
   url: "https://youtubeautomationlab.com",
   email: "hello@youtubeautomationlab.com",
-  phone: "+1 (713) 337-6825",
-  whatsapp: "https://wa.me/17133376825",
   hours: "Mon–Fri · 9am–6pm CT",
   address: ["8930 Gross Point Rd, Ste LL200B", "Skokie, IL 60077"],
   mapsLink: "https://maps.google.com/?q=8930+Gross+Point+Rd+Skokie+IL+60077",
