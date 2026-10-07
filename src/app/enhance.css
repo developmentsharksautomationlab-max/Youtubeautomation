@@ -91,6 +91,9 @@ button.c290:hover{border-color:#0A0A0B}
   .c234{font-size:24px}
   .x-band{min-height:320px;padding:24px}
   .c291{grid-template-columns:1fr}
+  /* Studio screenshot: show the whole image instead of cropping to its top-left corner. */
+  .c109{height:auto;object-fit:contain}
+  .c104{padding:8px;border-radius:16px}
 }
 
 /* Testimonial cards: white cards inside the dark reviews section were inheriting white text. */
