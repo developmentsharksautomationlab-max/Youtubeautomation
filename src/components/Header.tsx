@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { SITE } from "@/lib/content";
 
 const navLinks = [
@@ -15,13 +15,16 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const calendarIcon = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18" /><path d="M8 2v4" /><path d="M16 2v4" /></svg>
+const arrowIcon = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
 );
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
   // Close the mobile menu whenever the route changes.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
@@ -29,51 +32,82 @@ export default function Header() {
     setOpen(false);
   }
 
+  // Track scroll for the glass state and the red "video progress" bar along the bottom edge.
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      headerRef.current?.style.setProperty("--x-progress", String(progress));
+      setScrolled(window.scrollY > 8);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
   return (
-    <header className="c2">
-      <div className="c3">
-        <Link className="c4" href="/" aria-label="YouTube Automation Lab home">
-          <span className="c5">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#FFFFFF" /></svg>
+    <header ref={headerRef} className={`x-hd${scrolled ? " x-hd-scrolled" : ""}${open ? " x-hd-open" : ""}`}>
+      <div className="x-hd-bar">
+        <Link className="x-hd-logo" href="/" aria-label="YouTube Automation Lab home">
+          <span className="x-hd-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#FFFFFF" /></svg>
           </span>
-          <span className="c6">
-            <span className="c7">YouTube Automation</span>
-            <span className="c8">LAB</span>
+          <span className="x-hd-word">
+            <span className="x-hd-name">YouTube Automation</span>
+            <span className="x-hd-tag">LAB</span>
           </span>
         </Link>
-        <button
-          className="x-burger"
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="main-nav"
-          onClick={() => setOpen(!open)}
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-            {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
-        <nav id="main-nav" className={open ? "c9 x-open" : "c9"} aria-label="Main">
-          {navLinks.map((link) => (
+
+        <nav id="main-nav" className="x-hd-nav" aria-label="Main">
+          {navLinks.map((link, i) => (
             <Link
               key={link.href}
-              className={pathname === link.href ? "c217" : "c10"}
+              className={isActive(link.href) ? "x-hd-link x-active" : "x-hd-link"}
               href={link.href}
-              {...(pathname === link.href ? { "aria-current": "page" as const } : {})}
+              style={{ "--i": i } as CSSProperties}
+              {...(isActive(link.href) ? { "aria-current": "page" as const } : {})}
             >
+              <span className="x-hd-num" aria-hidden="true">0{i + 1}</span>
               {link.label}
             </Link>
           ))}
-          <a className="c11 x-menu-cta" href={SITE.booking}>
+          <a className="x-hd-cta x-hd-cta-menu" href={SITE.booking}>
             Book Strategy Call
-            {calendarIcon}
+            {arrowIcon}
           </a>
         </nav>
-        <a className="c11" href={SITE.booking}>
-          Book Strategy Call
-          {calendarIcon}
-        </a>
+
+        <div className="x-hd-actions">
+          <a className="x-hd-cta" href={SITE.booking}>
+            <span className="x-hd-live" aria-hidden="true" />
+            Book Strategy Call
+            {arrowIcon}
+          </a>
+          <button
+            className="x-hd-burger"
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="main-nav"
+            onClick={() => setOpen(!open)}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
       </div>
+      <span className="x-hd-progress" aria-hidden="true" />
     </header>
   );
 }
