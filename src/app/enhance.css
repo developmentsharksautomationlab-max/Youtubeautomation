@@ -1,0 +1,204 @@
+/* Additions on top of the design export (style.css): imagery, maps, mobile menu and responsive rules. */
+
+html{scroll-behavior:smooth}
+img{max-width:100%}
+a.c11,a.c22,a.c23,a.c63,a.c138,a.c186,button.c192,button.c200,button.c287{transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+a.c11:hover,a.c22:hover,a.c186:hover,button.c192:hover,button.c200:hover,button.c287:hover{color:#FFFFFF;transform:translateY(-1px);box-shadow:0 12px 24px -12px rgba(224,0,0,.7)}
+a.c23:hover{color:#0A0A0B;background:#FFFFFF}
+a.c10:hover{background:#F4F4F5;color:#0A0A0B}
+a.c215:hover,a.c209:hover{color:#FFFFFF}
+a.c211:hover{border-color:#E00000;background:#E00000;color:#FFFFFF}
+:focus-visible{outline:2px solid #E00000;outline-offset:3px}
+
+/* Image cards */
+.x-thumb{position:relative;height:200px;border-radius:16px;overflow:hidden;background:#141417}
+.x-thumb img,.x-port img,.x-cover img{object-fit:cover;transition:transform .6s ease}
+.c129{transition:box-shadow .3s ease,transform .3s ease}
+.c129:hover{transform:translateY(-3px);box-shadow:0 30px 60px -36px rgba(10,10,11,.45)}
+.c129:hover .x-thumb img,.x-port:hover img,.c292:hover .x-cover img{transform:scale(1.05)}
+.x-thumb-top img{object-position:top left}
+.x-chip-tag{position:absolute;left:12px;top:12px;z-index:1;padding:6px 10px;border-radius:999px;background:rgba(10,10,11,.72);color:#FFFFFF;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;backdrop-filter:blur(6px)}
+
+/* Portfolio tiles (home) */
+.x-port{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;min-height:260px;padding:22px;border-radius:22px;overflow:hidden;color:#FFFFFF;text-decoration:none;background:#0A0A0B;isolation:isolate}
+.x-port img{z-index:-2}
+.x-port::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,11,.05) 20%,rgba(10,10,11,.88) 100%)}
+a.x-port:hover{color:#FFFFFF}
+.x-port-tag{align-self:flex-start;margin-bottom:auto;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em}
+.x-port-tag.x-live{background:#E00000}
+.x-port-name{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.02em}
+.x-port-sub{font-size:14px;color:#D4D4D8}
+
+/* "Your channel next" card */
+.x-cta-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:32px;border-radius:26px;background:#E00000;color:#FFFFFF;text-decoration:none;min-height:360px}
+a.x-cta-card:hover{color:#FFFFFF;background:#C80000}
+.x-cta-card h3{margin:0;font-size:32px;line-height:1.05;letter-spacing:-.03em}
+.x-cta-card p{margin:0;font-size:16px;line-height:1.6;color:#FFE1E1}
+.x-cta-link{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+
+/* Proof points (reviews section) */
+.x-proof{display:flex;flex-direction:column;gap:14px;padding:28px;border-radius:20px;background:#141417;border:1px solid #26262B;color:#FFFFFF}
+.x-proof-icon{width:48px;height:48px;border-radius:14px;background:rgba(224,0,0,.16);display:flex;align-items:center;justify-content:center}
+.x-proof-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em}
+.x-proof-text{font-size:15px;line-height:1.6;color:#B4B4BB}
+
+/* Service panels with photography */
+.x-svc{position:relative;overflow:hidden;isolation:isolate}
+.x-svc img{z-index:-2;object-fit:cover}
+.x-svc::after{content:"";position:absolute;inset:0;z-index:-1}
+.c231.x-svc::after{background:linear-gradient(160deg,rgba(224,0,0,.94) 0%,rgba(176,0,0,.78) 100%)}
+.c241.x-svc::after{background:linear-gradient(160deg,rgba(10,10,11,.94) 0%,rgba(10,10,11,.7) 100%)}
+
+/* About: team photo band */
+.x-band{position:relative;min-height:420px;margin-top:20px;border-radius:28px;overflow:hidden;display:flex;align-items:flex-end;padding:40px;color:#FFFFFF;isolation:isolate}
+.x-band img{z-index:-2;object-fit:cover}
+.x-band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,11,0) 35%,rgba(10,10,11,.85) 100%)}
+.x-band p{margin:0;max-width:640px;font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.15;letter-spacing:-.02em}
+
+
+/* Resources library */
+.x-cover{position:relative;height:180px;border-radius:16px;overflow:hidden;background:#141417}
+.c292{transition:box-shadow .3s ease,transform .3s ease}
+.c292:hover{transform:translateY(-3px);box-shadow:0 30px 60px -36px rgba(10,10,11,.45)}
+button.c289,button.c290{font:inherit;font-size:15px;font-weight:600;cursor:pointer;color:inherit;background:transparent}
+button.c289{background:#E00000;color:#FFFFFF;border:1.5px solid #E00000}
+button.c290:hover{border-color:#0A0A0B}
+.x-soon{color:#8E8E96;font-size:14px;font-weight:600}
+
+/* Header: mobile menu */
+.x-burger{display:none;width:48px;height:48px;border-radius:14px;border:1px solid #E7E7EA;background:#FFFFFF;align-items:center;justify-content:center;cursor:pointer;color:#0A0A0B}
+.c9 a.x-menu-cta{display:none}
+
+@media (max-width: 1180px){
+  .c2 .c9{display:none}
+  .c2 .c3 > .c11{display:none}
+  .x-burger{display:inline-flex}
+  .c2 .c9.x-open{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;order:3;padding:4px 0 20px;font-size:17px}
+  .c2 .c9.x-open .x-menu-cta{display:inline-flex;margin-top:10px}
+}
+
+@media (max-width: 720px){
+  .c2{padding:0 16px}
+  .c3{min-height:68px}
+  .c1 > section,.c201{padding-left:20px !important;padding-right:20px !important}
+  .c58,.c73{padding-top:72px;padding-bottom:72px}
+  .c84,.c110,.c174{padding-top:80px;padding-bottom:80px}
+  .c12{padding-top:56px}
+  .c218{padding-top:64px;padding-bottom:72px}
+  .c26,.c118,.c123,.c142,.c152,.c187,.c231,.c241,.c249,.c254,.c283{padding:24px}
+  .c257,.c280{padding:32px}
+  .c233{font-size:72px}
+  .c234{font-size:24px}
+  .x-band{min-height:320px;padding:24px}
+  .c291{grid-template-columns:1fr}
+}
+
+/* Testimonial cards: white cards inside the dark reviews section were inheriting white text. */
+.c160{color:#0A0A0B;border-color:transparent;transition:transform .3s ease,box-shadow .3s ease}
+.c160:hover{transform:translateY(-3px);box-shadow:0 30px 60px -30px rgba(224,0,0,.45)}
+
+/* Page-hero stat cards: big numbers like "250M+" overflowed the narrow 2x2 cards. */
+.c226{flex:0 1 460px}
+.c226 > *{min-width:0;padding:24px 26px}
+.c226 .c79{font-size:clamp(34px,3.4vw,44px);white-space:nowrap}
+/* Stat numbers scale with the viewport so they never spill out of their cards. */
+.c79,.c82{font-size:clamp(30px,3.6vw,52px)}
+@media (max-width: 600px){
+  .c226 > *,.c77 > *,.c36{padding:18px}
+  .c226 .c79,.c79,.c82{font-size:28px}
+  .c37{font-size:22px}
+}
+@media (max-width: 420px){
+  .c36{padding:14px}
+  .c37{font-size:19px}
+  .c3{gap:12px}
+  .c4{gap:10px}
+  .c5{width:40px;height:30px}
+  .c7{font-size:16px}
+}
+
+/* Box grids: fixed column counts so rows always fill evenly (auto-fit left orphan boxes, e.g. 4+2 or 3+1). */
+.c95,.c128,.c278,.c64{grid-template-columns:repeat(4,minmax(0,1fr))}        /* 4 or 8 boxes */
+.c88,.c291{grid-template-columns:repeat(3,minmax(0,1fr))}                  /* 6 boxes (3 on case studies) */
+.c141{grid-template-columns:repeat(3,minmax(0,1fr))}                       /* 3 plans */
+.c188,.c238,.c248{grid-template-columns:repeat(2,minmax(0,1fr))}           /* form fields, lists, pairs */
+
+@media (max-width: 1100px){
+  .c95,.c128,.c278,.c64,.c88,.c291{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c88:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .c141{grid-template-columns:minmax(0,560px);justify-content:center}
+}
+
+@media (max-width: 600px){
+  .c95,.c128,.c278,.c64,.c88,.c88:has(> :nth-child(3):last-child),.c291,.c188,.c238,.c248{grid-template-columns:minmax(0,1fr)}
+  .c141{grid-template-columns:minmax(0,1fr)}
+  .c212{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}
+  .c213{min-width:0}
+  .c213:nth-child(3):last-child{grid-column:1/-1}
+  .c243{flex-direction:column;gap:10px}
+  .c244{flex-basis:auto;padding-top:0}
+  .c246{font-size:24px}
+}
+
+/* Scale: the export is sized for very large screens; render it ~10% smaller on desktop/tablet. */
+@media (min-width: 721px){
+  .c1{zoom:.9}
+}
+
+/* Motion */
+@keyframes x-fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes x-pulse{0%{box-shadow:0 0 0 0 rgba(255,0,0,.55)}70%{box-shadow:0 0 0 8px rgba(255,0,0,0)}100%{box-shadow:0 0 0 0 rgba(255,0,0,0)}}
+
+/* Page hero entrance (first section of every page), staggered */
+.c1 > section:first-of-type:not(.c12) > div > *{animation:x-fade-up .8s cubic-bezier(.2,.7,.2,1) both}
+.c1 > section:first-of-type:not(.c12) > div > *:nth-child(2){animation-delay:.12s}
+.c1 > section:first-of-type:not(.c12) > div > *:nth-child(n+3){animation-delay:.24s}
+.c15 > *{animation:x-fade-up .8s cubic-bezier(.2,.7,.2,1) both}
+.c15 > *:nth-child(2){animation-delay:.08s}
+.c15 > *:nth-child(3){animation-delay:.16s}
+.c15 > *:nth-child(4){animation-delay:.24s}
+.c15 > *:nth-child(n+5){animation-delay:.32s}
+.c26{animation:x-fade-up 1s .3s cubic-bezier(.2,.7,.2,1) both}
+
+/* Scroll reveal (classes added by ScrollReveal.tsx) */
+.x-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.x-reveal.x-in{opacity:1;transform:none}
+
+/* Small touches */
+.c34{animation:x-pulse 2s infinite}
+a.c11 svg,a.c22 svg,a.c23 svg,.x-cta-link svg{transition:transform .2s ease}
+a.c11:hover svg,a.c22:hover svg,a.c23:hover svg,a.x-cta-card:hover .x-cta-link svg{transform:translateX(3px)}
+.c2 .c9.x-open{animation:x-fade-up .25s ease both}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+
+/* About: mission + story timeline */
+.x-story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:stretch}
+.x-mission{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:24px;padding:48px;border-radius:28px;background:#E00000;color:#FFFFFF;isolation:isolate}
+.x-mission::after{content:"";position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 70%);z-index:-1}
+.x-mission-foot{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:auto;padding-top:28px;border-top:1px solid rgba(255,255,255,.28)}
+.x-mission-stat{display:flex;flex-direction:column;gap:4px;font-size:14px;color:#FFE1E1}
+.x-mission-stat strong{font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#FFFFFF}
+.x-story-body{display:flex;flex-direction:column;gap:18px;justify-content:center}
+.x-story-title{margin:0;font-size:clamp(30px,3.2vw,42px);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+.x-timeline{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column}
+.x-timeline li{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:20px;padding-bottom:28px}
+.x-timeline li:last-child{padding-bottom:0}
+.x-timeline li:not(:last-child)::before{content:"";position:absolute;left:23px;top:52px;bottom:6px;width:2px;background:linear-gradient(#FFD0D0,#F4F4F5)}
+.x-tl-step{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#FFF2F2;color:#E00000;font-family:'Geist Mono',monospace;font-size:14px;font-weight:500}
+.x-timeline li:last-child .x-tl-step{background:#E00000;color:#FFFFFF}
+.x-timeline h3{margin:10px 0 6px;font-size:20px;font-weight:700;letter-spacing:-.015em}
+.x-timeline p{margin:0;font-size:16px;line-height:1.65;color:#52525B}
+
+@media (max-width: 960px){
+  .x-story{grid-template-columns:minmax(0,1fr);gap:40px}
+}
+@media (max-width: 600px){
+  .x-mission{padding:28px}
+  .x-timeline li{grid-template-columns:40px minmax(0,1fr);gap:16px}
+  .x-tl-step{width:40px;height:40px;border-radius:12px}
+  .x-timeline li:not(:last-child)::before{left:19px;top:44px}
+  .x-timeline h3{margin-top:6px;font-size:18px}
+}
