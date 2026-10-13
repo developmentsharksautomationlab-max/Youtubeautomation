@@ -357,12 +357,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="c58">
+      <section className="c58 x-clip">
         <div className="c59">
           <div className="c60">
             <div className="c54">
-              <span className="c61">Portfolio</span>
-              <h2 className="c62">Channels we’ve built and run.</h2>
+              <h2 className="c62 x-upper">
+                Some of <span className="x-accent">our clients</span>
+              </h2>
+              <p className="x-rings-sub">
+                Channels we build and run end-to-end - strategy, production, and monetization.
+              </p>
             </div>
             <Link className="c63" href="/case-studies">
               View Case Studies
@@ -377,8 +381,8 @@ export default function Home() {
                 strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <path d="M5 12h14"></path>
-                <path d="m13 6 6 6-6 6"></path>
+                <path d="M7 17 17 7"></path>
+                <path d="M8 7h9v9"></path>
               </svg>
             </Link>
           </div>

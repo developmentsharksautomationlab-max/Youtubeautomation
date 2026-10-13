@@ -261,3 +261,42 @@ a.c11:hover svg,a.c22:hover svg,a.c23:hover svg,a.x-cta-card:hover .x-cta-link s
   .x-timeline li:not(:last-child)::before{left:19px;top:44px}
   .x-timeline h3{margin-top:6px;font-size:18px}
 }
+
+/* Clients ring marquee (home) */
+.x-clip{overflow-x:clip}
+.x-upper{text-transform:uppercase}
+.x-accent{color:#E00000}
+.x-rings-sub{margin:16px 0 0;max-width:52ch;font-size:16px;line-height:1.6;color:#52525B}
+.x-rings{--rings-gap:clamp(22px,2.8vw,40px);width:100vw;margin-left:calc(50% - 50vw);margin-top:-16px;overflow:hidden;padding:10px 0 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.x-rings-track{display:flex;align-items:flex-start;gap:var(--rings-gap);width:max-content;will-change:transform;animation:xRings 60s linear infinite}
+.x-rings:hover .x-rings-track{animation-play-state:paused}
+@keyframes xRings{to{transform:translate3d(calc(-50% - var(--rings-gap)/2),0,0)}}
+@media (prefers-reduced-motion:reduce){.x-rings-track{animation:none}.x-rings{overflow-x:auto;scrollbar-width:none}}
+.x-ring{flex:0 0 auto;width:96px;text-align:center}
+.x-ring-img{width:88px;height:88px;border-radius:50%;padding:4px;border:2px solid #E00000;margin:0 auto;box-sizing:border-box;transition:transform .4s ease}
+.x-ring-pic{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden}
+.x-ring-pic img{object-fit:cover}
+.x-ring:hover .x-ring-img{transform:scale(1.06)}
+.x-ring span{display:block;margin-top:10px;font-size:12px;font-weight:600;color:#52525B;white-space:nowrap}
+
+/* Plans */
+.x-plans{align-items:stretch}
+.x-plan{position:relative;display:flex;flex-direction:column;border-radius:28px;padding:40px;background:#FFFFFF;color:#0A0A0B;border:1px solid #E7E7EA}
+.x-plan-hot{border-color:#E00000;box-shadow:0 30px 60px -40px rgba(224,0,0,.45),0 0 0 1px #E00000}
+.x-plan-flag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:#E00000;color:#FFFFFF;font-family:'Geist Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.x-plan-name{margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.x-plan-desc{margin:8px 0 0;font-size:15px;line-height:1.6;color:#52525B;min-height:3.2em}
+.x-plan-price{margin:22px 0 6px;font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(34px,3.2vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.x-plan-price small{display:block;margin-top:8px;font-family:'Geist',system-ui,sans-serif;font-size:15px;font-weight:500;letter-spacing:0;color:#E00000}
+.x-plan-lbl{margin:20px 0 14px;font-family:'Geist Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#71717A}
+.x-plan-list{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px}
+.x-plan-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:#27272A}
+.x-plan-list li::before{content:"\2713";flex:0 0 auto;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid #E00000;color:#E00000;font-size:11px}
+.x-plan-cta{margin-top:auto}
+.x-plan-cta .c11{width:100%}
+.c11.x-btn-black{background:#0A0A0B}
+.c11.x-btn-black:hover{background:#27272A;color:#FFFFFF}
+.x-plan-note{margin:12px 0 0;font-size:13px;color:#71717A;text-align:center}
+.x-plan-note a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.x-plan-note a:hover{color:#E00000}
+@media (max-width:720px){.x-plan{padding:28px 24px}.x-plan-desc{min-height:0}.x-ring{width:84px}.x-ring-img{width:76px;height:76px}}
